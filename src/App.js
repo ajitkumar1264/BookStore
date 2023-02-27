@@ -1,25 +1,53 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from 'react'
+import Home from './pages/Home'
+import About from './pages/About'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+class App extends Component {
+  constructor(props) {
+    super(props)
+
+    this.state = {
+      isHome: false,
+      isAbout: false,
+    }
+
+    this.HandleClickHome = this.HandleClickHome.bind(this)
+    this.HandleClickAbout = this.HandleClickAbout.bind(this)
+  }
+
+  HandleClickHome = () => {
+    this.setState({ isHome: true });
+  }
+  HandleClickAbout = () => {
+    this.setState({ isAbout: true });
+  }
+
+  render() {
+    if (this.state.isHome) {
+      return <Home/>
+    }
+    else if (this.state.isAbout) {
+      return <About />
+    }
+    else {
+      return (
+      <>
+        <button onClick={this.HandleClickHome}>Home</button>
+        <button onClick={this.HandleClickAbout}>About</button>
+      </>
+      );
+    }
+
+  }
+
+  // render() {
+  //   return (
+  //     <>
+  //       {/* <Counter/> */}
+  //     </>
+  //   );
+  // }
 }
 
-export default App;
+export default App
