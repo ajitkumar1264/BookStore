@@ -3,14 +3,14 @@ import Hoc from './Hoc'
 
 function Clikcount(props) {
 
-  const {increment,counter}=props
-  
+  const {increment,counter,name}=props
+
   return (
     <>
   
-    <button onClick={increment} >clik {counter} times</button>
+    <button onClick={increment} >clik {name} {counter} times</button>
     </>
   )
 }
 
-export default Hoc(Clikcount)
+export default Hoc(Clikcount,5)

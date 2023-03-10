@@ -1,16 +1,16 @@
 import React, { useState } from "react";
 
-const Hoc = (Wrapdedcomponent) => {
+const Hoc = (Wrapdedcomponent,num) => {
   function Hoc(props) {
     const [counter, setcounter] = useState(0);
 
     const increment = () => {
-      setcounter(counter + 1);
+      setcounter(counter + num);
     };
 
     return (
       <>
-        <Wrapdedcomponent counter={counter} increment={increment} />
+        <Wrapdedcomponent counter={counter} increment={increment} {...props} />
       </>
     );
   }
