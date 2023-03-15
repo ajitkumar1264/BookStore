@@ -29,6 +29,8 @@ class App extends Component {
     return (
       <>
       
+      <Form/>
+
    <Datafetching/>
   
 
